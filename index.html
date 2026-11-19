@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Pool · Calendario de contenido</title>
+<style>
+:root{--ch:#1B1B1B;--bg:#F0F0F0;--gr:#6B6B6B;--lg:#AAAAAA;--wh:#fff;--ok:#2E7D4F;--warn:#9A6B00}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ch);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--ch);color:var(--wh);padding:28px 24px}
+header .in{max-width:1180px;margin:0 auto}
+header h1{margin:0;font-size:26px;font-weight:900;letter-spacing:.02em}
+header p{margin:8px 0 0;color:#bbb;max-width:780px;line-height:1.5;font-size:15px}
+.sel{margin-top:14px} .sel select{padding:6px 10px;font-size:14px}
+main{max-width:1180px;margin:0 auto;padding:20px 24px 60px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.stat{background:var(--wh);padding:10px 14px;font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.stat b{display:block;font-size:24px;letter-spacing:0}
+table{width:100%;border-collapse:collapse;background:var(--wh);font-size:14px;margin-bottom:28px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #e3e3e3}
+th{background:var(--ch);color:var(--wh);font-weight:700}
+tr.r{cursor:pointer} tr.r:hover td{background:#fafafa}
+.badge{display:inline-block;padding:3px 8px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:#ddd;color:var(--ch)}
+.b-aprobado{background:var(--ok);color:#fff}.b-cambios{background:var(--warn);color:#fff}
+.b-en_ajuste{background:var(--gr);color:#fff}.b-programado,.b-publicado{background:var(--ch);color:#fff}
+.post{background:var(--wh);padding:20px;margin-bottom:26px;scroll-margin-top:12px}
+.meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-size:15px}
+.meta .v{color:var(--gr);font-size:13px}
+.strip{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+.strip img{height:380px;width:auto;flex:none;background:#eee}
+.strip video{height:580px;background:#000;flex:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+@media(max-width:780px){.grid{grid-template-columns:1fr}.strip img{height:300px}.strip video{height:480px}}
+h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--gr)}
+pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.45;background:#f6f6f6;padding:12px;margin:0}
+.fb{border-top:1px solid #e3e3e3;margin-top:16px;padding-top:14px}
+.hist{font-size:14px;margin-bottom:12px}
+.hist div{padding:8px 10px;background:#f6f6f6;margin-bottom:6px}
+.hist .resp{background:#e9efe9}
+.act{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
+textarea{width:100%;min-height:70px;font:inherit;font-size:14px;padding:8px;border:1px solid #ccc}
+input{font:inherit;font-size:14px;padding:8px;border:1px solid #ccc}
+button{font:inherit;font-weight:800;font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding:10px 16px;border:0;cursor:pointer}
+.ok{background:var(--ch);color:#fff}.chg{background:#fff;color:var(--ch);border:2px solid var(--ch)}
+button:disabled{opacity:.4;cursor:default}
+.note{font-size:13px;color:var(--gr)}
+.ro{background:#fff3cd;padding:10px 14px;margin-bottom:16px;font-size:14px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ch);color:#fff;padding:10px 16px;font-size:14px;display:none}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <h1>THE POOL · CALENDARIO DE CONTENIDO</h1>
+  <p>Revisa cada pieza para Instagram, Facebook y LinkedIn. Aprueba lo que esté listo o pide cambios con un comentario. Lo aprobado se programa en sus redes; los cambios se ajustan y vuelven aquí para una nueva revisión.</p>
+  <div class="sel"><select id="cal"></select></div>
+</div></header>
+<main id="app"><p>Cargando…</p></main>
+<div class="toast" id="toast"></div>
+<script>
+const SB_URL = "https://gxifhvpkymxeuewrcsnx.supabase.co";
+const SB_KEY = "sb_publishable_c9wLa4Ds4rFy5OgZPXzIXA_YS98FkcN";
+const qs = new URLSearchParams(location.search);
+const TOKEN = qs.get("k");
+const LABEL = {pendiente:"Pendiente",aprobado:"Aprobado",cambios:"Cambios pedidos",en_ajuste:"En ajuste",programado:"Programado",publicado:"Publicado"};
+const MES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const esc = s => (s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fdate = d => { const [y,m,dd] = d.split("-"); return `${+dd} ${MES[+m-1]}`; };
+function toast(t){const e=document.getElementById("toast");e.textContent=t;e.style.display="block";setTimeout(()=>e.style.display="none",3000)}
+async function sb(path, opt={}){
+  const r = await fetch(SB_URL + "/rest/v1/" + path, {...opt, headers:{apikey:SB_KEY, Authorization:"Bearer "+SB_KEY, "Content-Type":"application/json", ...(opt.headers||{})}});
+  const j = await r.json().catch(()=>null);
+  if(!r.ok) throw new Error((j && (j.message||j.hint)) || r.statusText);
+  return j;
+}
+let CAL, DATA, ST = {}, FB = {};
+async function load(){
+  const list = await fetch("calendarios/calendarios.json?"+Date.now()).then(r=>r.json());
+  const sel = document.getElementById("cal");
+  sel.innerHTML = list.map(c=>`<option value="${c.id}">${esc(c.nombre)}</option>`).join("");
+  CAL = qs.get("cal") || list[list.length-1].id; sel.value = CAL;
+  sel.onchange = () => { qs.set("cal", sel.value); location.search = qs.toString(); };
+  DATA = await fetch(`calendarios/${CAL}/calendar.json?`+Date.now()).then(r=>r.json());
+  const [posts, fb] = await Promise.all([
+    sb(`posts?calendario=eq.${CAL}&select=*`),
+    sb(`feedback?post_id=like.${encodeURIComponent(CAL)}*&select=*&order=created_at.asc`)
+  ]);
+  ST = Object.fromEntries(posts.map(p=>[p.num,p]));
+  FB = {}; fb.forEach(f=>{ const n=f.post_id.split("/")[1]; (FB[n]=FB[n]||[]).push(f); });
+  render();
+}
+function render(){
+  const app = document.getElementById("app");
+  const cnt = {}; DATA.posts.forEach(p=>{const s=(ST[p.id]||{}).status||"pendiente"; cnt[s]=(cnt[s]||0)+1});
+  let h = "";
+  if(!TOKEN) h += `<div class="ro">Vista de solo lectura. Para aprobar o pedir cambios usa el link de revisión que te compartimos.</div>`;
+  h += `<div class="stats">${["pendiente","cambios","en_ajuste","aprobado","programado","publicado"].map(s=>`<div class="stat"><b>${cnt[s]||0}</b>${LABEL[s]}</div>`).join("")}</div>`;
+  h += `<table><tr><th>Fecha</th><th>Formato</th><th>Pilar</th><th>Gancho</th><th>Estado</th></tr>` +
+    DATA.posts.map(p=>{const s=(ST[p.id]||{}).status||"pendiente";
+      return `<tr class="r" onclick="document.getElementById('p${p.id}').scrollIntoView({behavior:'smooth'})"><td>${p.dia} ${fdate(p.fecha)}</td><td>${p.tipo}</td><td>${esc(p.pilar)}</td><td>${esc(p.gancho)}</td><td><span class="badge b-${s}">${LABEL[s]}</span></td></tr>`}).join("") + `</table>`;
+  for(const p of DATA.posts){
+    const st = ST[p.id] || {status:"pendiente", version:p.version};
+    const base = `calendarios/${CAL}/media/${p.id}/`, bust = `?v=${p.version}`;
+    let media = "";
+    if(p.tipo==="reel") media = `<video src="${base}reel.mp4${bust}" poster="${base}portada.jpg${bust}" controls playsinline preload="metadata"></video>`;
+    else media = p.media.filter(m=>m.endsWith(".jpg")).map(m=>`<img src="${base}${m}${bust}" loading="lazy" alt="">`).join("");
+    const pdf = p.media.find(m=>m.endsWith(".pdf"));
+    const hist = (FB[p.id]||[]).map(f=>`<div><b>${f.accion==="aprobar"?"✓ Aprobado":"✎ Cambios"}</b> · v${f.version} · ${esc(f.autor||"Cliente")} · ${new Date(f.created_at).toLocaleString("es-MX",{dateStyle:"short",timeStyle:"short"})}${f.comentario?`<br>${esc(f.comentario)}`:""}</div>${f.respuesta?`<div class="resp"><b>Respuesta:</b> ${esc(f.respuesta)}</div>`:""}`).join("");
+    const locked = ["programado","publicado","en_ajuste"].includes(st.status);
+    const prog = st.programado_en && Object.keys(st.programado_en).length ? `<p class="note">Programado: ${Object.entries(st.programado_en).map(([k,v])=>`${k} ${esc(v)}`).join(" · ")}</p>` : "";
+    h += `<section class="post" id="p${p.id}">
+      <div class="meta"><b>${p.dia} ${fdate(p.fecha)}</b> <span class="badge">${p.tipo}</span> ${esc(p.pilar)} <span class="badge b-${st.status}">${LABEL[st.status]}</span> <span class="v">versión ${st.version||p.version}</span></div>
+      <div class="strip">${media}</div>
+      ${pdf?`<p class="note">LinkedIn: <a href="${base}${pdf}${bust}" target="_blank">ver carrusel en PDF</a></p>`:""}
+      ${p.guion && p.guion.length?`<h4 style="margin-top:12px">Guion de voz</h4><pre>${esc(p.guion.join("\n"))}</pre>`:""}
+      <div class="grid"><div><h4>Copy Instagram + Facebook</h4><pre>${esc(p.copy_ig_fb)}</pre></div><div><h4>Copy LinkedIn</h4><pre>${esc(p.copy_linkedin)}</pre></div></div>
+      <div class="fb">${hist?`<h4>Historial</h4><div class="hist">${hist}</div>`:""}${prog}
+      ${TOKEN && !locked ? `
+        <div class="act" style="margin-bottom:8px"><input id="n${p.id}" placeholder="Tu nombre" value="${esc(localStorage.getItem('tp_nombre')||'')}"></div>
+        <textarea id="c${p.id}" placeholder="¿Qué cambiarías? (texto, foto, tono, fecha…)"></textarea>
+        <div class="act" style="margin-top:8px">
+          <button class="ok" onclick="send('${p.id}','aprobar')">Aprobar</button>
+          <button class="chg" onclick="send('${p.id}','cambios')">Pedir cambios</button>
+        </div>` : (locked && TOKEN ? `<p class="note">${st.status==="en_ajuste"?"Estamos aplicando los cambios. Vuelve pronto para revisar la nueva versión.":"Esta pieza ya está programada."}</p>`:"")}
+      </div></section>`;
+  }
+  app.innerHTML = h;
+}
+async function send(id, accion){
+  const nombre = document.getElementById("n"+id).value.trim();
+  const com = document.getElementById("c"+id).value.trim();
+  if(accion==="cambios" && !com){ toast("Escribe qué cambio necesitas"); return; }
+  try{ localStorage.setItem("tp_nombre", nombre); }catch(e){}
+  document.querySelectorAll(`#p${id} button`).forEach(b=>b.disabled=true);
+  try{
+    await sb("rpc/enviar_feedback", {method:"POST", body:JSON.stringify({p_token:TOKEN, p_post:`${CAL}/${id}`, p_accion:accion, p_comentario:com, p_autor:nombre})});
+    toast(accion==="aprobar"?"Aprobado. Se programará en sus redes.":"Listo, recibimos tus cambios.");
+    await load(); document.getElementById("p"+id).scrollIntoView();
+  }catch(e){ toast("Error: "+e.message); document.querySelectorAll(`#p${id} button`).forEach(b=>b.disabled=false); }
+}
+load().catch(e=>{document.getElementById("app").innerHTML=`<p>Error cargando: ${esc(e.message)}</p>`});
+</script>
+</body>
+</html>
