@@ -22,6 +22,7 @@ Estados de `posts.status`: `pendiente` → (`aprobado` | `cambios`) → `en_ajus
 Colores sobrios, **sin naranja**: negro #1B1B1B, blanco, grises #F0F0F0 / #6B6B6B / #AAAAAA.
 Tipografía Open Sauce One. Logo oficial (`generador/brand/`). Precios siempre "+ IVA". Copys en español
 casual y cercano, sin frases de IA. No inventar testimonios ni datos.
+**No mezclar sedes** (Luis, 19-nov): una pieza de una sede solo muestra fotos y datos de esa sede; si una pieza junta varias sedes, cada foto lleva su etiqueta de sede (el generador la pone sola). Números escritos con cifra en guiones y subtítulos ("Goldsmith 40", "10%").
 
 ## Ciclo de revisión (lo corre la tarea programada)
 
