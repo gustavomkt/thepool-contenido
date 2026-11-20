@@ -40,7 +40,7 @@ Agenda un recorrido: thepool.mx
 
 dict(id="02", fecha="2026-11-25", dia="Mié", tipo="reel", pilar="Comunidad · Polanco",
  voz=[
-  ("Llegas a Goldsmith cuarenta, saludas en recepción y agarras tu café.", ["Pol_portada.jpg"]),
+  ("Llegas a Goldsmith 40, saludas en recepción y agarras tu café.", ["Pol_portada.jpg"]),
   ("Tu equipo ya está instalado. Cuatro, ocho, los que sean.", ["Pol_of3_cap4_1.jpg","Pol_of19_cap8_1.jpg"]),
   ("Junta a las once, en la sala.", ["Pol_of8_cap9_0.jpg"]),
   ("Comes a unos pasos del Parque Lincoln.", ["Pol_of5_cap8_0.jpg"]),
@@ -183,9 +183,9 @@ Vía Magna 19. Agenda un recorrido: thepool.mx
 dict(id="07", fecha="2026-12-07", dia="Lun", tipo="carrusel", pilar="Comunidad",
  slides=[
   dict(t="cover", img="Pol_of5_cap8_0.jpg", eyebrow="COMUNIDAD", title="LO QUE NO\nVIENE EN EL\nCONTRATO.", sub="Desliza"),
-  dict(t="photo", img="Pol_portada.jpg", kicker="01", title="El vecino de escritorio", body="Que te presenta a tu próximo cliente."),
-  dict(t="photo", img="Int_portada.jpg", kicker="02", title="El café de las 9", body="Con gente que no es de tu equipo (y eso se agradece)."),
-  dict(t="photo", img="Bos_portada.jpg", kicker="03", title="La junta que se mudó a la terraza", body="Porque hay ideas que salen mejor al aire libre."),
+  dict(t="photo", img="Pol_portada.jpg", kicker="01 · POLANCO", title="El vecino de escritorio", body="Que te presenta a tu próximo cliente."),
+  dict(t="photo", img="Int_portada.jpg", kicker="02 · INTERLOMAS", title="El café de las 9", body="Con gente que no es de tu equipo (y eso se agradece)."),
+  dict(t="photo", img="Bos_portada.jpg", kicker="03 · BOSQUES", title="La junta que se mudó a la terraza", body="Porque hay ideas que salen mejor al aire libre."),
   dict(t="list", eyebrow="Y TAMBIÉN", title="Lo que sí está\nen el contrato", items=["Eventos de networking","Promovemos tu marca en la comunidad","Pet friendly","Parking de bicis","Precios preferenciales en servicios"]),
   dict(t="cta", title="¿YA ERES\nPOOLER?", body="Etiqueta a tu compañero de escritorio favorito."),
  ],
@@ -238,8 +238,8 @@ dict(id="09", fecha="2026-12-11", dia="Vie", tipo="carrusel", pilar="Promo Navid
  slides=[
   dict(t="cover", img="Int_of207_cap11_1.jpg", eyebrow="PROMO DE DICIEMBRE", title="EMPIEZA EL\nAÑO CON OFICINA\nPROPIA.", sub="10% de descuento"),
   dict(t="list", eyebrow="ASÍ FUNCIONA", title="Tu regalo de\nfin de año", items=["Contratas tu oficina en diciembre: 10% de descuento.","O te vas al plan anual: 10% de descuento.","En enero llegas y ya trabajas."], note="Precios + IVA. Sujeto a disponibilidad."),
-  dict(t="photo", img="Pol_of9_cap5_0.jpg", kicker="LISTA PARA ENTRAR", title="Sin armar nada", body="Muebles, internet y recepción incluidos."),
-  dict(t="photo", img="Bos_of24_cap3_2.jpg", kicker="CERCA DE TI", title="Cinco barrios para elegir", body="Polanco, Interlomas, Bosques, Insurgentes Sur y San Rafael."),
+  dict(t="photo", img="Pol_of9_cap5_0.jpg", kicker="POLANCO · OFICINA 9", title="Sin armar nada", body="Muebles, internet y recepción incluidos."),
+  dict(t="photo", img="Bos_of24_cap3_2.jpg", kicker="BOSQUES · OFICINA 24", title="Cinco barrios para elegir", body="Polanco, Interlomas, Bosques, Insurgentes Sur y San Rafael."),
   dict(t="cta", title="VÁLIDO TODO\nDICIEMBRE", body="Agenda tu recorrido antes de las vacaciones."),
  ],
  ig="""El mejor propósito de año nuevo: dejar de trabajar desde el comedor 🎄
@@ -292,7 +292,7 @@ dict(id="11", fecha="2026-12-16", dia="Mié", tipo="reel", pilar="Promo Navidad"
  voz=[
   ("Enero siempre llega con los mismos propósitos.", ["Pol_of13_cap3_1.jpg"]),
   ("Ordenar al equipo. Dejar de trabajar desde el comedor. Verte más profesional con tus clientes.", ["Pol_of19_cap8_0.jpg","Int_of207_cap11_0.jpg"]),
-  ("Si contratas tu oficina en diciembre, tienes diez por ciento de descuento.", ["Bos_of9_cap6_1.jpg"]),
+  ("Si contratas tu oficina en diciembre, tienes 10% de descuento.", ["Bos_of9_cap6_1.jpg"]),
   ("Cinco sedes, oficinas listas para entrar.", ["Int_portada.jpg","Pol_portada.jpg"]),
   ("Agenda tu recorrido antes de que acabe el año.", ["END"]),
  ],
@@ -316,23 +316,19 @@ Precios + IVA, sujeto a disponibilidad. thepool.mx
 
 dict(id="12", fecha="2026-12-18", dia="Vie", tipo="carrusel", pilar="Sedes nuevas",
  slides=[
-  dict(t="cover", img="SRa_portada.jpg", eyebrow="NUEVA SEDE", title="LLEGAMOS A\nSAN RAFAEL.", sub="Y vamos por Insurgentes"),
+  dict(t="cover", img="SRa_portada.jpg", eyebrow="NUEVA SEDE", title="LLEGAMOS A\nSAN RAFAEL.", sub="Nueva sede"),
   dict(t="list", eyebrow="SAN RAFAEL", title="Lo que vas a\nencontrar", items=["Oficinas para equipos de 4 a 73 personas","Terraza de 245 metros cuadrados","Coworking","Listas para usar"]),
-  dict(t="photo", img="Ins_portada.jpg", kicker="INSURGENTES SUR", title="Frente a Galerías Insurgentes", body="Lista de espera abierta. Apártate un lugar."),
-  dict(t="cta", title="CONOCE LO\nNUEVO", body="Agenda tu recorrido o únete a la lista de espera."),
+  dict(t="photo", img="SRa_portada.jpg", crop=0.3, kicker="SAN RAFAEL · COWORKING", title="Tu nuevo lugar para trabajar", body="Oficinas privadas y coworking en la colonia San Rafael."),
+  dict(t="cta", title="CONOCE\nSAN RAFAEL", body="Agenda tu recorrido y conoce la sede antes que nadie."),
  ],
  ig="""Nueva casa: San Rafael 🏡
 
 Oficinas para equipos de 4 a 73 personas, coworking y una terraza de 245 m² que ya queremos estrenar con ustedes.
 
-Y en Insurgentes Sur, frente a Galerías, ya está abierta la lista de espera.
-
 Agenda tu recorrido en thepool.mx
 
 """ + TAGS + " #SanRafael",
  li="""The Pool llega a San Rafael: oficinas privadas para equipos de 4 a 73 personas, coworking y terraza de 245 m².
-
-En Insurgentes Sur, frente a Galerías Insurgentes, abrimos lista de espera.
 
 thepool.mx
 

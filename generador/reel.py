@@ -3,7 +3,7 @@
 import os, sys, subprocess, json
 from PIL import Image, ImageDraw, ImageOps
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from render import OUT, POSTS, P, CTA_URL, F, CH, CR, OR, WH, GR, LG, SH_DARK, wrap, logo, squares
+from render import SEDES, tag, OUT, POSTS, P, CTA_URL, F, CH, CR, OR, WH, GR, LG, SH_DARK, wrap, logo, squares
 
 W, H, FPS = 1080, 1920, 30
 
@@ -61,6 +61,11 @@ def end_png(path):
 def clip(img, seconds, out, zoom_in=True):
     src = Image.open(P + img).convert("RGB")
     big = ImageOps.fit(src, (int(W * 1.25), int(H * 1.25)), Image.LANCZOS)
+    s = SEDES.get(img[:3])
+    if s:
+        dd = ImageDraw.Draw(big); f = F(800, 34); tw = dd.textlength(s, font=f)
+        x0, y0 = int(W * 0.125) + 60, 700
+        dd.rectangle([x0, y0, x0 + tw + 36, y0 + 60], fill=WH); dd.text((x0 + 18, y0 + 11), s, font=f, fill=CH)
     tmp = out + ".png"; big.save(tmp)
     n = max(1, int(seconds * FPS))
     z = f"min(1+0.12*on/{n},1.12)" if zoom_in else f"max(1.12-0.12*on/{n},1)"

@@ -16,6 +16,10 @@ F = lambda w, s: ImageFont.truetype(f"{B}OSO-{w}.ttf", s)
 LOGO_W = Image.open(B + "logo-white.png").convert("RGBA")
 LOGO_D = Image.open(B + "logo-dark.png").convert("RGBA")
 M = 72  # margen
+SEDES = {"Pol": "POLANCO", "Int": "INTERLOMAS", "Bos": "BOSQUES", "Ins": "INSURGENTES SUR", "SRa": "SAN RAFAEL"}
+def sede_tag(d, img, x, y):
+    s = SEDES.get(img[:3]);
+    if s: tag(d, x, y, s, bg=WH, fg=CH, size=20)
 
 def logo(im, dark_bg, x, y, w=170):
     L = (LOGO_W if dark_bg else LOGO_D).copy()
@@ -64,6 +68,7 @@ def s_cover(sl, i, n):
     im = Image.new("RGB", (W, H), CH)
     im.paste(fit(sl["img"], W, H - band, sl.get("crop", 0.5)), (0, 0))
     d = ImageDraw.Draw(im)
+    sede_tag(d, sl["img"], M, H - band - 66)
     logo(im, True, M, H - band + 56, 150)
     y = H - band + 56
     tag(d, W - M - int(d.textlength(sl["eyebrow"], font=F(700, 22))) - 32, y + 4, sl["eyebrow"], bg=WH, fg=CH, size=22)
@@ -107,6 +112,7 @@ def s_price(sl, i, n):
     im.paste(fit(sl["img"], W, ph), (0, 0))
     d = ImageDraw.Draw(im)
     d.rectangle([0, ph, W, H], fill=CR)
+    sede_tag(d, sl["img"], M, ph - 62)
     y = tag(d, M, ph + 60, sl["eyebrow"], size=26) + 30
     fp = F(900, 130)
     d.text((M, y), sl["price"], font=fp, fill=CH)
