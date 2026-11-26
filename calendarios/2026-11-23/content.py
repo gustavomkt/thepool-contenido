@@ -72,7 +72,7 @@ dict(id="03", fecha="2026-11-27", dia="Vie", tipo="carrusel", pilar="Promo Buen 
   dict(t="list", eyebrow="ASÍ DE FÁCIL", title="Dos formas de\naprovecharlo", items=["Contratas tu oficina en noviembre: 10% de descuento.","O te vas al plan anual: 10% de descuento.","Te ayudamos a elegir sede y tamaño."], note="Precios + IVA. Sujeto a disponibilidad."),
   dict(t="photo", img="Pol_of3_cap4_0.jpg", kicker="POLANCO · OFICINA 3", title="Para 4 personas", body="Amueblada y lista para entrar."),
   dict(t="photo", img="Bos_of9_cap6_1.jpg", kicker="BOSQUES · OFICINA 9", title="Para 6 personas", body="Luz natural y mucho verde alrededor."),
-  dict(t="photo", img="Int_of211_cap12_0.jpg", kicker="INTERLOMAS · OFICINA 211", title="Para 12 personas", body="Para el equipo que ya no cabe en tu sala."),
+  dict(t="photo", img="Int_of211_cap12_0_sinplastico.jpg", kicker="INTERLOMAS · OFICINA 211", title="Para 12 personas", body="Para el equipo que ya no cabe en tu sala."),
   dict(t="cta", title="TERMINA EL\n30 DE NOVIEMBRE", body="Escríbenos por DM o agenda tu recorrido esta semana."),
  ],
  ig="""Buen Fin, pero para tu equipo 🏊
@@ -157,9 +157,9 @@ Bosque de Alisos 29. Agenda un recorrido: thepool.mx
 dict(id="06", fecha="2026-12-04", dia="Vie", tipo="carrusel", pilar="Sedes · Interlomas",
  slides=[
   dict(t="cover", img="Int_portada.jpg", eyebrow="INTERLOMAS", title="TU EQUIPO\nSIN CRUZAR\nLA CIUDAD.", sub="De 2 a +35 personas"),
-  dict(t="photo", img="Int_of207_cap11_0.jpg", kicker="OFICINA 207", title="Hasta 11 personas", body="Vista abierta y luz todo el día."),
-  dict(t="photo", img="Int_of211_cap12_1.jpg", kicker="OFICINA 211", title="Hasta 12 personas", body="Para cuando el equipo creció más rápido que el plan."),
-  dict(t="photo", img="Int_of211_cap12_3.jpg", kicker="ESPACIOS PARA JUNTAS", title="Café, plática y decisiones", body="Sin salir del edificio."),
+  dict(t="photo", img="Int_of207_cap11_0_sinplastico.jpg", kicker="OFICINA 207", title="Hasta 11 personas", body="Vista abierta y luz todo el día."),
+  dict(t="photo", img="Int_of211_cap12_1_sinplastico.jpg", kicker="OFICINA 211", title="Hasta 12 personas", body="Para cuando el equipo creció más rápido que el plan."),
+  dict(t="photo", img="Int_of211_cap12_3_sinplastico.jpg", kicker="ESPACIOS PARA JUNTAS", title="Café, plática y decisiones", body="Sin salir del edificio."),
   dict(t="list", eyebrow="INCLUYE", title="Llegas y\nya trabajas", items=["Wi-fi de alta velocidad","Recepción","Cafetería y área lounge","Acceso 24/7","Pet friendly"]),
   dict(t="cta", title="VEN A\nCONOCERLA", body="Vía Magna 19, Interlomas. Agenda tu recorrido."),
  ],
