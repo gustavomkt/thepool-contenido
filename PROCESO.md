@@ -60,6 +60,14 @@ casual y cercano, sin frases de IA. No inventar testimonios ni datos.
 - Reels: usar `/latest/reels_composer`; portada en "Imagen en miniatura → Subir imagen"; en Compartir elegir **Programar** (por defecto viene "Compartir ahora").
 - Trabajar siempre en la pestaña activa: las de fondo no repintan las capturas.
 - Fechas ya pasadas: siguiente día hábil 10:00.
+- Reels: escribir el copy **antes** de subir el video (el preview roba el foco y corta el `type`).
+
+### LinkedIn (aprendido 26-nov)
+- Página: `linkedin.com/company/2873700/admin/page-posts/published/` → "Start a post".
+- Carrusel: "+" → ícono documento → `file_upload` al input "Choose file" → título obligatorio ("<Gancho> | The Pool") → Done → copy.
+- Reel: ícono de media → subir mp4 → ícono de imagen del editor → "Add video thumbnail" → portada.jpg → Add → Next → copy. Adjuntar la media **antes** del copy; si no, thepool.mx genera un link preview que hay que quitar.
+- Programar: reloj junto a "Post" → fecha con el calendario (escribirla y dar Enter no la toma) → la hora se pone sola en el siguiente cuarto de hora: abrir la lista, subir un poco y elegir 10:00 AM → Next → Schedule.
+- Verificar en reloj → "View all scheduled posts".
 
 Autorización: Gustavo pidió (18-nov-2026) que lo aprobado por el cliente en esta página se programe
 sin pedirle confirmación. Solo aplica a piezas de este repo con estado `aprobado`.
