@@ -103,7 +103,7 @@ dict(id="04", fecha="2026-11-30", dia="Lun", tipo="carrusel", pilar="Opciones",
   dict(t="price", img="Int_portada.jpg", eyebrow="LITE PASS", price="$2,000", unit="+ IVA", body="10 accesos al coworking. Vienes cuando quieras."),
   dict(t="price", img="Bos_portada.jpg", eyebrow="NACIONAL", price="$3,900", unit="+ IVA / MES", body="Coworking 24/7, acceso a todas las sedes y 8 horas de sala de juntas."),
   dict(t="price", img="Pol_of13_cap3_0.jpg", eyebrow="OFICINA PRIVADA", price="Desde 2", unit="PERSONAS", body="Amueblada, con internet y recepción. Tu equipo, tu puerta."),
-  dict(t="price", img="Pol_of9_cap5_0.jpg", eyebrow="DOMICILIO FISCAL", price="$24,000", unit="+ IVA / AÑO", body="Tu dirección comercial en un barrio que suena bien."),
+  dict(t="price", img="Pol_of9_cap5_0.jpg", eyebrow="DOMICILIO FISCAL", price="$27,000", unit="+ IVA / AÑO", body="Tu dirección comercial en un barrio que suena bien."),
   dict(t="cta", title="¿NO SABES\nCUÁL ES EL TUYO?", body="Mándanos DM con cuántas personas son y cómo trabajan. Te recomendamos uno."),
  ],
  ig="""Hay quien viene un día a la semana y hay equipos de 12 que ya viven aquí. Por eso no tenemos un solo plan.
@@ -112,7 +112,7 @@ dict(id="04", fecha="2026-11-30", dia="Lun", tipo="carrusel", pilar="Opciones",
 🎟️ Lite Pass · 10 accesos · $2,000 + IVA
 🌎 Nacional · $3,900 + IVA/mes, acceso 24/7 a todas las sedes
 🚪 Oficina privada · desde 2 personas
-📬 Domicilio fiscal · $24,000 + IVA/año
+📬 Domicilio fiscal · $27,000 + IVA/año
 
 ¿Cuál eres tú? Si no sabes, mándanos DM y te ayudamos.
 
@@ -123,7 +123,7 @@ dict(id="04", fecha="2026-11-30", dia="Lun", tipo="carrusel", pilar="Opciones",
 • Lite Pass (10 accesos): $2,000 + IVA
 • Plan Nacional: $3,900 + IVA/mes, coworking 24/7 en todas las sedes y 8 h de sala de juntas
 • Oficina privada: desde 2 personas
-• Domicilio fiscal: $24,000 + IVA/año
+• Domicilio fiscal: $27,000 + IVA/año
 
 thepool.mx
 
