@@ -51,6 +51,16 @@ casual y cercano, sin frases de IA. No inventar testimonios ni datos.
    - `update feedback set atendido=true where ...`
 4. Avisar a Gustavo (resumen corto: qué se ajustó, qué se programó, qué quedó pendiente).
 
+### Notas técnicas para programar (aprendido 25-nov)
+- Antes de programar, revisar `posts.programado_en`: si ya trae `fb`/`ig`/`linkedin`, esa red ya está; si trae `*_verificar`, revisar el Planificador de Business Suite antes de reintentar (evita duplicados).
+- `status='programado'` solo cuando estén las 3 redes; mientras tanto se va llenando `programado_en` por red.
+- Subir archivos sin abrir el selector nativo: copiar la media a `/mnt/user-data/outputs/thepool/<id>/`, parchar `HTMLInputElement.prototype.click` para que el input `file` que crea la página se agregue al DOM (con `aria-label`) en lugar de abrir el diálogo, dar clic en "Agregar foto/video", ubicar el input con `find` y usar `file_upload`. `fetch()` a GitHub está bloqueado por la CSP de Facebook.
+- Texto: escribir con la acción `type` (teclado real). `execCommand`/paste rompen el editor. El `type` largo a veces marca timeout pero sí escribe; esperar ~15 s y leer el `contenteditable`.
+- Fechas: en el campo de fecha `cmd+a`, escribir `dd/mm/aaaa`, Enter y clic en el día; hora: clic en la hora, escribir `10`, flecha derecha, `00`.
+- Reels: usar `/latest/reels_composer`; portada en "Imagen en miniatura → Subir imagen"; en Compartir elegir **Programar** (por defecto viene "Compartir ahora").
+- Trabajar siempre en la pestaña activa: las de fondo no repintan las capturas.
+- Fechas ya pasadas: siguiente día hábil 10:00.
+
 Autorización: Gustavo pidió (18-nov-2026) que lo aprobado por el cliente en esta página se programe
 sin pedirle confirmación. Solo aplica a piezas de este repo con estado `aprobado`.
 
