@@ -35,6 +35,17 @@ a{color:#2B2B2B}a:hover{color:#323232}
   label[style*="padding: 18px"] > strong:last-child{width:100%;padding-left:36px}
 }
 </style>
+<style>
+.dd{position:relative}
+.dd summary{list-style:none;cursor:pointer;text-transform:uppercase}
+.dd summary::-webkit-details-marker{display:none}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:-12px;z-index:50;background:#FFFFFF;border:1px solid #D9D6D0;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:200px;display:flex;flex-direction:column;padding:6px 0}
+.dd-menu a{padding:12px 16px;text-decoration:none;color:#2B2B2B;font-weight:700;text-transform:none;letter-spacing:0}
+.dd-menu a:hover,.dd-menu a:focus{background:#F4F3F0}
+.dd-menu .dd-all{border-top:1px solid #E7E4DE;font-size:13px}
+@media (max-width:700px){header nav{flex-wrap:wrap !important;overflow:visible !important}}
+</style>
+<script>document.addEventListener('click',function(e){document.querySelectorAll('details.dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});</script>
 </head>
 <body>
 <nav aria-label="Páginas del preview" style="background:#1B1B1B;color:#fff;font-family:system-ui,sans-serif;font-size:13px;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
@@ -49,7 +60,7 @@ a{color:#2B2B2B}a:hover{color:#323232}
 <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
 <a href="index.html" aria-label="The Pool, inicio" style="display: block; line-height: 0"><img src="img/logo-thepool.svg" alt="The Pool" style="height: 40px; width: auto; display: block"></a>
 <nav aria-label="Secciones de la sede" style="display: flex; flex-wrap: wrap; gap: 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.06em">
-<a href="index.html" style="text-decoration: none">INICIO</a><a href="#salas" style="text-decoration: none">SALAS</a><a href="#daypass" style="text-decoration: none">DAY PASS</a><a href="#oficinas" style="text-decoration: none">OFICINAS</a><a href="#blog" style="text-decoration: none">BLOG</a><a href="#otras" style="text-decoration: none">OTRAS SEDES</a>
+<a href="index.html" style="text-decoration: none">INICIO</a><a href="#salas" style="text-decoration: none">SALAS</a><a href="#daypass" style="text-decoration: none">DAY PASS</a><a href="#oficinas" style="text-decoration: none">OFICINAS</a><a href="#blog" style="text-decoration: none">BLOG</a><details class="dd"><summary>SEDES <span aria-hidden="true">▾</span></summary><div class="dd-menu" role="menu"><a href="sede-polanco.html" role="menuitem">Polanco</a><a href="sede-bosques.html" role="menuitem">Bosques</a><a href="sede-interlomas.html" role="menuitem">Interlomas</a><a href="sede-insurgentes.html" role="menuitem">Insurgentes</a><a href="sede-sanrafael.html" role="menuitem">San Rafael</a><a href="index.html#sedes" role="menuitem" class="dd-all">Ver todas</a></div></details>
 </nav>
 <a href="#tour" style="text-decoration: none; background: #187FB2; color: #FFFFFF; padding: 12px 16px; font-weight: 900; font-size: 13px">AGENDAR VISITA</a>
 </div>
