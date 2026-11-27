@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Cómo hacer networking inteligente en eventos de coworking (sin forzarla) | The Pool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#2B2B2B}a:hover{color:#323232}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+</style>
+<style>
+@media (max-width: 700px){
+  header > div{gap:12px !important;padding:12px 16px !important}
+  header nav{flex-wrap:nowrap !important;overflow-x:auto;width:100%;gap:18px !important;font-size:13px !important;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  header nav a{white-space:nowrap}
+  section[style*="position: relative"] > img{height:200px !important}
+  section[style*="position: relative"] > div[style*="position: absolute"]{position:static !important;display:block !important;background:#2D2A26}
+  section[style*="position: relative"] > div[style*="position: absolute"] > div{padding:0 !important}
+  #reservar{margin-top:0 !important;padding:16px !important}
+  #reservar form{padding:16px !important}
+  div[style*="padding: 40px"]{padding:24px 20px !important;max-width:none !important}
+  h1{font-size:34px !important;line-height:1.08 !important}
+  h2{font-size:28px !important}
+  p[style*="font-size: 18px"]{font-size:16px !important}
+  strong[style*="font-size: 36px"]{font-size:30px !important}
+  section[style*="padding: 56px 24px"],section[style*="padding: 32px 24px"]{padding-left:16px !important;padding-right:16px !important}
+  label[style*="padding: 18px"]{flex-wrap:wrap;padding:14px !important}
+  label[style*="padding: 18px"] > strong:last-child{width:100%;padding-left:36px}
+}
+</style>
+<style>
+.dd{position:relative}
+.dd summary{list-style:none;cursor:pointer;text-transform:uppercase}
+.dd summary::-webkit-details-marker{display:none}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:-12px;z-index:50;background:#FFFFFF;border:1px solid #D9D6D0;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:200px;display:flex;flex-direction:column;padding:6px 0}
+.dd-menu a{padding:12px 16px;text-decoration:none;color:#2B2B2B;font-weight:700;text-transform:none;letter-spacing:0}
+.dd-menu a:hover,.dd-menu a:focus{background:#F4F3F0}
+.dd-menu .dd-all{border-top:1px solid #E7E4DE;font-size:13px}
+@media (max-width:700px){header nav{flex-wrap:wrap !important;overflow:visible !important}}
+</style>
+<script>document.addEventListener('click',function(e){document.querySelectorAll('details.dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});</script>
+<style>.prose{font-size:18px;line-height:1.65;font-weight:500;color:#2B2B2B}.prose h2{font-size:30px;line-height:1.15;font-weight:900;margin:40px 0 12px}.prose h3{font-size:23px;font-weight:900;margin:32px 0 10px}.prose h4{font-size:19px;font-weight:900;margin:24px 0 8px}.prose p{margin:0 0 18px}.prose ul,.prose ol{margin:0 0 18px;padding-left:24px}.prose li{margin:0 0 8px}.prose img{max-width:100%;height:auto;display:block;margin:24px 0}.prose figure{margin:24px 0}.prose figcaption{font-size:14px;color:#5A5752}.prose blockquote{margin:24px 0;padding:8px 20px;border-left:4px solid #187FB2;font-weight:700}.prose a{color:#187FB2}@media (max-width:700px){.prose{font-size:17px}.prose h2{font-size:25px}}</style>
+</head>
+<body>
+<nav aria-label="Páginas del preview" style="background:#1B1B1B;color:#fff;font-family:system-ui,sans-serif;font-size:13px;padding:10px 16px;display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+<strong>Preview sitio The Pool en OperIA</strong>
+<a href="index.html" style="color:#fff">Inicio</a>
+<a href="index.html#sedes" style="color:#fff">Sedes</a>
+<a href="blog.html" style="color:#fff">Blog</a>
+</nav>
+<div style="font-family: 'Open Sauce One', Archivo, sans-serif; background: #F4F3F0; color: #2B2B2B; min-height: 100vh">
+<header style="border-bottom: 1px solid #D9D6D0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
+<a href="index.html" aria-label="The Pool, inicio" style="display: block; line-height: 0"><img src="img/logo-thepool.svg" alt="The Pool" style="height: 40px; width: auto; display: block"></a>
+<nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 20px; font-weight: 700; font-size: 14px; letter-spacing: 0.06em">
+<a href="index.html" style="text-decoration: none">INICIO</a><details class="dd"><summary>SEDES <span aria-hidden="true">▾</span></summary><div class="dd-menu" role="menu"><a href="sede-polanco.html" role="menuitem">Polanco</a><a href="sede-bosques.html" role="menuitem">Bosques</a><a href="sede-interlomas.html" role="menuitem">Interlomas</a><a href="sede-insurgentes.html" role="menuitem">Insurgentes</a><a href="sede-sanrafael.html" role="menuitem">San Rafael</a><a href="index.html#sedes" role="menuitem" class="dd-all">Ver todas</a></div></details><a href="sede-polanco.html" style="text-decoration: none">POLANCO</a><a href="blog.html" aria-current="page" style="text-decoration: none">BLOG</a>
+</nav>
+<a href="#reservar" style="text-decoration: none; background: #187FB2; color: #FFFFFF; padding: 12px 16px; font-weight: 900; font-size: 13px">RESERVAR SALA</a>
+</div>
+</header>
+
+<article style="max-width: 760px; margin: 0 auto; padding: 40px 24px 24px">
+<a href="blog.html" style="font-weight: 800; text-decoration: none">← Blog</a>
+<div style="display: flex; gap: 6px; flex-wrap: wrap; margin: 20px 0 12px"><span style="border: 1px solid #C9C5BE; padding: 3px 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em">Networking</span></div>
+<h1 style="margin: 0 0 12px; font-size: 44px; line-height: 1.08; font-weight: 900">Cómo hacer networking inteligente en eventos de coworking (sin forzarla)</h1>
+<p style="margin: 0 0 24px; font-weight: 700; color: #5A5752">5 min de lectura</p>
+<img src="img/blog/c4760e8ae1b3.avif" alt="" style="width: 100%; max-height: 440px; object-fit: cover; display: block; margin-bottom: 32px">
+<div class="prose"><p>El networking ya no se trata de repartir tarjetas o soltar tu pitch a la primera persona que veas. Hoy, construir relaciones profesionales genuinas requiere estrategia, empatía y un buen entorno. Por eso, los eventos de coworking se han convertido en una de las mejores oportunidades para freelancers, consultores y solopreneurs que buscan conectar sin forzarla.</p><p>En este blog post te damos las claves para hacer networking inteligente: ese que no se siente incómodo, que fluye y que puede convertirse en proyectos reales, colaboraciones valiosas o nuevas amistades profesionales.</p><h4><strong>El entorno importa: por qué el coworking es ideal para hacer networking</strong></h4><p>Los espacios de coworking están diseñados para fomentar interacciones. No solo compartes espacio con otros profesionales, sino que muchas veces se organizan eventos casuales, charlas, desayunos o afterworks que sirven como catalizadores para conocer gente nueva.</p><p>A diferencia de los grandes eventos corporativos, en el coworking es más fácil encontrar puntos en común: muchos están construyendo algo, creciendo su marca o buscando aliados para colaborar.</p><h4><strong>Antes del evento: prepárate sin ansiedad</strong></h4><ol><li><strong>Define tu objetivo</strong>: No se trata de conocer a todo el mundo, sino de tener claro qué tipo de conexiones te gustaría hacer. ¿Clientes? ¿Colaboradores? ¿Mentores?</li><li><strong>Optimiza tu presentación personal</strong>: Piensa en cómo te vas a presentar de forma breve pero memorable. No es un pitch, es una conversación.</li><li><strong>Investiga si puedes</strong>: Si sabes quién organiza o asistirá al evento, mira sus perfiles en redes o sitios web. Tener contexto facilita romper el hielo.</li></ol><h4><strong>Durante el evento: conecta con autenticidad</strong></h4><ol><li><strong>Empieza con interés genuino</strong>: Haz preguntas abiertas, escucha activamente, evita hablar solo de ti. La curiosidad sincera abre puertas.</li><li><strong>Evita vender</strong>: El networking inteligente no se trata de vender en el momento, sino de sembrar relaciones. Si hay sinergia, la oportunidad se dará.</li><li><strong>Sé memorable sin exagerar</strong>: Comparte una anécdota, un aprendizaje reciente, o algo que muestre tu forma de pensar o trabajar.</li></ol><h4><strong>Después del evento: el seguimiento lo es todo</strong></h4><ol><li><strong>Conecta en redes</strong>: Agrega a quienes conociste en LinkedIn o Instagram. Personaliza el mensaje para que no parezca automático.</li><li><strong>Comparte valor</strong>: Si viste algo que pueda ser útil para esa persona (un libro, una herramienta, una oportunidad), envíalo. Esa pequeña acción te distingue.</li><li><strong>Propuesta ligera</strong>: Si viste una oportunidad de colaborar, propón una llamada breve, sin presión, solo para explorar ideas.</li></ol><h4><strong>Bonus: rompe el hielo con estas preguntas</strong></h4><ul><li>¿Qué te trajo hoy al evento?</li><li>¿Estás trabajando en algo que te emocione ahora mismo?</li><li>¿Cómo es un día típico para ti como freelancer / emprendedor?</li><li>¿Qué herramientas o libros te han cambiado la forma de trabajar este año?</li></ul><h4><strong>En The Pool, el networking se siente natural</strong></h4><p>En The Pool organizamos eventos que no se sienten forzados. Desde desayunos hasta afterworks, talleres creativos o charlas inspiradoras, creamos espacios donde conocer a otras personas no es una tarea, sino una experiencia que disfrutas.</p><p>Comparte este post en tus redes, etiqueta a The Pool y obtén un <strong>Day Pass gratuito</strong> para venir a uno de nuestros eventos y probarlo por ti mismo.</p><p>#NetworkingConSentido #ThePoolComunidad #FreelancersEnMovimiento</p></div>
+<div style="background: #E7E4DE; padding: 28px; margin-top: 40px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between"><strong style="font-size: 20px; font-weight: 900">¿Buscas oficina o coworking?</strong><a href="index.html#sedes" style="background: #187FB2; color: #FFFFFF; text-decoration: none; padding: 14px 20px; font-weight: 900">CONOCE LAS SEDES</a></div>
+</article>
+<section style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 72px">
+<h2 style="margin: 0 0 20px; font-size: 32px; font-weight: 900">TAMBIÉN TE PUEDE INTERESAR</h2>
+<div class="cards"><a href="post-5-beneficios-clave-de-crear-comunidades-para-impulsar-el-crecimiento-de-tu-empresa-a-traves-del-networking.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #D9D6D0; display: flex; flex-direction: column"><img src="img/blog/5453c908658b.avif" alt="" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; display: block"><strong style="padding: 14px 16px; font-size: 16px; line-height: 1.3">5 Beneficios Clave de Crear Comunidades para Impulsar el Crecimiento de tu Empresa a través del Networking</strong></a><a href="post-disena-eventos-efectivos-paneles-talleres-y-networking-con-resultados.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #D9D6D0; display: flex; flex-direction: column"><img src="img/blog/13ff0a00f181.avif" alt="" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; display: block"><strong style="padding: 14px 16px; font-size: 16px; line-height: 1.3">Diseña eventos efectivos: paneles, talleres y networking con resultados</strong></a><a href="post-buscas-el-espacio-de-coworking-perfecto-descubre-the-pool-donde-tu-trabajo-se-conecta-con-la-innovacion.html" style="text-decoration: none; color: inherit; background: #FFFFFF; border: 1px solid #D9D6D0; display: flex; flex-direction: column"><img src="img/blog/a4f822687af6.avif" alt="" loading="lazy" style="width: 100%; height: 150px; object-fit: cover; display: block"><strong style="padding: 14px 16px; font-size: 16px; line-height: 1.3">¿Buscas el Espacio de Coworking Perfecto? Descubre The Pool: Donde tu trabajo se conecta con la innovación</strong></a></div>
+</section>
+<footer style="background: #E7E4DE; color: #2B2B2B; padding-top: 32px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center"><span style="font-size: 12px; font-weight: 800; letter-spacing: 0.14em; margin-right: 8px">SÍGUENOS</span><a href="https://www.facebook.com/ThePoolMX" target="_blank" rel="noopener" aria-label="The Pool en Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #FFFFFF; border: 1px solid #D9D6D0"><img src="img/facebook.svg" alt="" style="width: 22px; height: 22px"></a><a href="https://www.instagram.com/thepoolmx/" target="_blank" rel="noopener" aria-label="The Pool en Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #FFFFFF; border: 1px solid #D9D6D0"><img src="img/instagram.svg" alt="" style="width: 22px; height: 22px"></a><a href="https://www.linkedin.com/company/thepoolmx/" target="_blank" rel="noopener" aria-label="The Pool en LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: #FFFFFF; border: 1px solid #D9D6D0"><img src="img/linkedin.svg" alt="" style="width: 22px; height: 22px"></a></div>
+</footer>
+</div>
+</body>
+</html>
